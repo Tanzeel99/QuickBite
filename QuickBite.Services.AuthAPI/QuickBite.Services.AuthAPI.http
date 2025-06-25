@@ -1,0 +1,6 @@
+@QuickBite.Services.AuthAPI_HostAddress = http://localhost:5177
+
+GET {{QuickBite.Services.AuthAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

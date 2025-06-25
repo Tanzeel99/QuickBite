@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{61762ACC-950E-4693-839A-E5A10B6C2A2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{E02D0CA5-985E-421B-8746-4387CF57798E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{1A51B62B-1CEC-48EF-B555-BAE577D77539}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.CouponAPI", "QuickBite.Services.CouponAPI\QuickBite.Services.CouponAPI.csproj", "{E9E311CE-5896-4755-8400-F1D71496D52F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Web", "QuickBite.Web\QuickBite.Web.csproj", "{1A096D3A-B728-49C5-9E99-FBBFC6265295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.AuthAPI", "QuickBite.Services.AuthAPI\QuickBite.Services.AuthAPI.csproj", "{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.ProductAPI", "QuickBite.Services.ProductAPI\QuickBite.Services.ProductAPI.csproj", "{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.ShoppingCartAPI", "QuickBite.Services.ShoppingCartAPI\QuickBite.Services.ShoppingCartAPI.csproj", "{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.MessageBus", "QuickBite.MessageBus\QuickBite.MessageBus.csproj", "{065B6056-5B6F-47AE-86B7-B0288FC3864D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E311CE-5896-4755-8400-F1D71496D52F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E311CE-5896-4755-8400-F1D71496D52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E311CE-5896-4755-8400-F1D71496D52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E311CE-5896-4755-8400-F1D71496D52F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A096D3A-B728-49C5-9E99-FBBFC6265295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A096D3A-B728-49C5-9E99-FBBFC6265295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A096D3A-B728-49C5-9E99-FBBFC6265295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A096D3A-B728-49C5-9E99-FBBFC6265295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065B6056-5B6F-47AE-86B7-B0288FC3864D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065B6056-5B6F-47AE-86B7-B0288FC3864D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065B6056-5B6F-47AE-86B7-B0288FC3864D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065B6056-5B6F-47AE-86B7-B0288FC3864D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9E311CE-5896-4755-8400-F1D71496D52F} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
+		{1A096D3A-B728-49C5-9E99-FBBFC6265295} = {61762ACC-950E-4693-839A-E5A10B6C2A2C}
+		{22A3B0FC-70A5-4D5E-8CAA-3E487CBDC1E3} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
+		{12CF9A61-F7E3-4784-BCBC-FE9BA15285CD} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
+		{25BCA602-8FC0-4EFE-AA0B-9340C4971ABC} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
+		{065B6056-5B6F-47AE-86B7-B0288FC3864D} = {1A51B62B-1CEC-48EF-B555-BAE577D77539}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5544D4FA-59BE-42CB-8CB5-61D8A00425EA}
+	EndGlobalSection
+EndGlobal

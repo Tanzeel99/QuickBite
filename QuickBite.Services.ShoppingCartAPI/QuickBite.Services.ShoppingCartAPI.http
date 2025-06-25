@@ -1,0 +1,6 @@
+@QuickBite.Services.ShoppingCartAPI_HostAddress = http://localhost:5106
+
+GET {{QuickBite.Services.ShoppingCartAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
