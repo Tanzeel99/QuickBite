@@ -57,7 +57,7 @@ namespace QuickBite.Services.CouponAPI.Migrations
 
                     b.HasKey("CouponID");
 
-                    b.ToTable("Coupons");
+                    b.ToTable("Coupons", (string)null);
 
                     b.HasData(
                         new

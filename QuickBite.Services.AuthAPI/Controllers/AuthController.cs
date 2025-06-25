@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using QuickBite.MessageBus;
 using QuickBite.Services.AuthAPI.Models.DTO;
 using QuickBite.Services.AuthAPI.Service.IService;
+using System.Configuration;
 
 namespace QuickBite.Services.AuthAPI.Controllers
 {
@@ -11,11 +13,15 @@ namespace QuickBite.Services.AuthAPI.Controllers
     {
         private readonly IAuthService _authService;
         protected ResponseDTO _responseDTO;
+        private readonly IMessageBus _messageBus;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IMessageBus messageBus, IConfiguration configuration)
         {
             _authService = authService;
             _responseDTO = new();
+            _configuration = configuration;
+            _messageBus = messageBus;
         }
 
         [HttpPost("login")]
@@ -45,7 +51,8 @@ namespace QuickBite.Services.AuthAPI.Controllers
                 _responseDTO.Message = errorMessage;
                 return BadRequest(_responseDTO);
             }
-
+            //registering in queue saying new user is created and then based on it we can log send mail ect
+            await _messageBus.PublishMessage(model.Email, _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue"));
             return Ok(_responseDTO);
         }
 
