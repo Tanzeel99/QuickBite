@@ -1,24 +1,29 @@
 using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using QuickBite.Services.CouponAPI;
-using QuickBite.Services.CouponAPI.Data;
-using QuickBite.Services.CouponAPI.Controllers;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using QuickBite.MessageBus;
+using QuickBite.Services.OrderAPI;
+using QuickBite.Services.OrderAPI.Data;
+using QuickBite.Services.OrderAPI.Service;
+using QuickBite.Services.OrderAPI.Service.IService;
+using QuickBite.Services.OrderAPI.Utility;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder
+    .Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<CouponDBContext>(option =>
+
+builder.Services.AddDbContext<OrderDBContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServerCouponConnectionString"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServerOrderConnectionString"));
 });
 
 #region Mapper
@@ -26,6 +31,15 @@ IMapper mapper = MappingDTOs.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 #endregion
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<BackendApiAuthenticationHttpClientHandler>();
+builder.Services.AddScoped<IMessageBus, MessageBus>();
+builder.Services.AddHttpClient("Product", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:ProductAPI"])).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
+
+
 
 var secret = builder.Configuration.GetValue<string>("APISettings:Secret");
 var issuer = builder.Configuration.GetValue<string>("APISettings:Issuer");
@@ -76,7 +90,6 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -85,10 +98,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 Stripe.StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
 app.UseHttpsRedirection();
-app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

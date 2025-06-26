@@ -17,18 +17,21 @@ builder.Services.AddHttpClient<ICouponService, CouponService>();
 builder.Services.AddHttpClient<IAuthService, AuthService>();
 builder.Services.AddHttpClient<IProductService, ProductService>();
 builder.Services.AddHttpClient<ICartService, CartService>();
+builder.Services.AddHttpClient<IOrderService, OrderService>();
 
 //Assigning the base URL from appsetings to property CouponAPIBaseURL present in staticdetail class in utility folder
 StaticDetails.CouponAPIBaseURL = builder.Configuration["ServiceURLs:CouponAPI"];
 StaticDetails.AuthAPIBaseURL = builder.Configuration["ServiceURLs:AuthAPI"];
 StaticDetails.ProductAPIBaseURL = builder.Configuration["ServiceURLs:ProductAPI"];
 StaticDetails.ShoppingCartAPIBaseURL = builder.Configuration["ServiceURLs:CartAPI"];
+StaticDetails.OrderAPIBase = builder.Configuration["ServiceURLs:OrderAPI"];
 
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 
 //To add authentication with cookie method

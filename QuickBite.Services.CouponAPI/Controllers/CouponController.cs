@@ -104,8 +104,20 @@ namespace QuickBite.Services.CouponAPI.Controllers
                 coupon.UpdatedBy = 1;
                 coupon.CreatedDate = DateTime.Now;
                 coupon.UpdatedDate = DateTime.Now;
+
                 _db.Coupons.Add(coupon);
                 _db.SaveChanges();
+
+                var options = new Stripe.CouponCreateOptions
+                {
+                    AmountOff = (long)(couponDTO.DiscountAmount * 100),
+                    Name = couponDTO.CouponCode,
+                    Currency = "usd",
+                    Id = couponDTO.CouponCode,
+                };
+                var service = new Stripe.CouponService();
+                service.Create(options);
+
                 response.Result = _mapper.Map<CouponDTO>(coupon);
             }
             catch (Exception e)
@@ -153,6 +165,9 @@ namespace QuickBite.Services.CouponAPI.Controllers
                 _db.Coupons.Update(coupon);
                 _db.SaveChanges();
                 response.Message = "Deleted Successfully!";
+
+                var service = new Stripe.CouponService();
+                service.Delete(coupon.CouponCode);
             }
             catch (Exception e)
             {
