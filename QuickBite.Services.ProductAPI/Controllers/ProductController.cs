@@ -58,7 +58,7 @@ namespace QuickBite.Services.ProductAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         [Route("CreateProduct")]
         public ResponseDTO CreateProduct(ProductDTO productDTO)
         {
@@ -125,7 +125,7 @@ namespace QuickBite.Services.ProductAPI.Controllers
 
 
         [HttpPut]
-        //[Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         [Route("UpdateProduct")]
         public ResponseDTO UpdateProduct(ProductDTO productDTO)
         {
@@ -173,7 +173,7 @@ namespace QuickBite.Services.ProductAPI.Controllers
 
         [HttpDelete]
         [Route("DeleteProduct/{id:int}")]
-        //[Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDTO Delete(int id)
         {
             try

@@ -32,10 +32,27 @@ namespace QuickBite.Services.CouponAPI.Controllers
             try
             {
                 var coupons = _db.Coupons
-    .Where(a => a.IsActive && !string.IsNullOrEmpty(a.CouponCode) && a.CouponCode.Length > 1)
-    .AsEnumerable() // Switches to LINQ-to-Objects (in-memory)
-    .OrderBy(s => int.Parse(s.CouponCode.Substring(1)))
+    .Where(a => a.IsActive && !string.IsNullOrEmpty(a.CouponCode))
+    .AsEnumerable() // Ensure you're doing this in memory, as parsing logic can't be translated to SQL
+    .OrderBy(c =>
+    {
+        var code = c.CouponCode;
+
+        if (char.IsDigit(code[0]))
+        {
+            // Try to extract leading number (e.g., 10OFF => 10)
+            var digits = new string(code.TakeWhile(char.IsDigit).ToArray());
+            return (0, int.TryParse(digits, out int n) ? n : int.MaxValue);
+        }
+        else
+        {
+            // Starts with letter (e.g., C120 => 120)
+            var digits = new string(code.Skip(1).Where(char.IsDigit).ToArray());
+            return (1, int.TryParse(digits, out int n) ? n : int.MaxValue);
+        }
+    })
     .ToList();
+
                 response.Result = _mapper.Map<List<CouponDTO>>(coupons);
             }
             catch (Exception e)

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.EmailAPI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.OrderAPI", "QuickBite.Services.OrderAPI\QuickBite.Services.OrderAPI.csproj", "{A11DEAFA-4F31-4F0A-8063-EE74B5A32D74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBite.Services.RewardAPI", "QuickBite.Services.RewardAPI\QuickBite.Services.RewardAPI.csproj", "{54375CA8-C881-4A13-A888-8BE1E49A6961}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{A11DEAFA-4F31-4F0A-8063-EE74B5A32D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11DEAFA-4F31-4F0A-8063-EE74B5A32D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11DEAFA-4F31-4F0A-8063-EE74B5A32D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54375CA8-C881-4A13-A888-8BE1E49A6961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54375CA8-C881-4A13-A888-8BE1E49A6961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54375CA8-C881-4A13-A888-8BE1E49A6961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54375CA8-C881-4A13-A888-8BE1E49A6961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{065B6056-5B6F-47AE-86B7-B0288FC3864D} = {1A51B62B-1CEC-48EF-B555-BAE577D77539}
 		{059D4CC7-9DB4-459D-8B42-4A02598FB066} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
 		{A11DEAFA-4F31-4F0A-8063-EE74B5A32D74} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
+		{54375CA8-C881-4A13-A888-8BE1E49A6961} = {6A4F6373-CC89-4A3E-AFD9-D5392F9E8A69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5544D4FA-59BE-42CB-8CB5-61D8A00425EA}
