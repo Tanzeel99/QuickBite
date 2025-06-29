@@ -27,7 +27,7 @@ namespace QuickBite.Web.Service
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = ApiType.PUT,
-                Url = CouponAPIBaseURL + "/api/coupon/DeleteCoupon" + id
+                Url = CouponAPIBaseURL + "/api/coupon/DeleteCoupon/" + id
             });
         }
 
